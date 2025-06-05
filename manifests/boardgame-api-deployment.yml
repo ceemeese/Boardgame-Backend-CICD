@@ -1,0 +1,28 @@
+
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: boardgame-api-deploy
+  labels:
+    app: boardgame-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: boardgame-api
+      tier: backend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: boardgame-api
+        tier: backend
+    spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+      - name: boardgame-api
+        image: ceemeese/boardgame-api
+        ports:
+        - containerPort: 8080
