@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: boardgame-api
-        image: ceemeese/boardgame-api-v2:00
+        image: ceemeese/boardgame-api-v2:02
         ports:
         - containerPort: 8080
         env:
