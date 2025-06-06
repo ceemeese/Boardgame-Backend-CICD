@@ -6,6 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//Config aws secret
 const {
   SecretsManagerClient,
   GetSecretValueCommand,
